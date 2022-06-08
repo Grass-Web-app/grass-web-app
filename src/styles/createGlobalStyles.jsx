@@ -12,23 +12,20 @@ export const GradienteHandy = (deg = 180) =>
   `linear-gradient(${deg}deg,  #D94C32, #F8AA39)`;
 
 export const GetFontFamilyHeader = () => "font-family: 'Raleway', sans-serif;";
-export const GetFamilyHeader=()=>'font-family: "PT Serif", serif;'
-export const GetNormalFamily=()=>'font-family: "Source Sans Pro", sans-serif;'
+export const GetFamilyHeader = () => 'font-family: "PT Serif", serif;';
+export const GetNormalFamily = () =>
+  'font-family: "Source Sans Pro", sans-serif;';
 export const GlobalStyle = createGlobalStyle`
 
 
-
-//Estilos por defecto que trae React
-body {
-  margin: 0;
+body {  
+  padding:0 ;
+  margin:0 ;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url(${require("../assets/image/bocce.jpeg")});
-  height: 100vh;
-  object-fit: cover;
 }
 
 code {
@@ -36,10 +33,6 @@ code {
     monospace;
 }
 
-
-
-
-/*Grid Area First Mobile*/
 
 /*min 640px*/
 .contenedor {

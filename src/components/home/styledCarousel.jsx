@@ -49,10 +49,9 @@ export const DivCarousel = styled.div`
   justify-items: center;
   align-items: center;
   grid-template-columns: 30% 40% 30%;
-  grid-template-rows: 45%5% 5% 45%;
+  grid-template-rows: 45% 10% 45%;
   grid-template-areas:
     "img img img"
-    ". . ."
     "Larr . Rarr"
     "des des des";
   height: fit-content;
@@ -77,13 +76,13 @@ export const DivCarousel = styled.div`
 export const DivImgContainer = styled.div`
   grid-area: ${(props) => props.area};
   height: 100%;
+  overflow: hidden;
+  border-radius: 10px;
 `;
 
 export const DivTextContainer = styled.div`
+  width: 100%;
   grid-area: ${(props) => props.area};
-  padding-top: 18%;
-  margin-left: 7%;
-  margin-right: 7%;
 `;
 
 export const LeftArrow = styled.div`
@@ -91,6 +90,8 @@ export const LeftArrow = styled.div`
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
+  margin-top: 10px;
+  z-index: 10;
   @media screen and (min-width: 1024px) {
     align-items: flex-end;
   }
@@ -100,6 +101,7 @@ export const RightArrow = styled.div`
   grid-area: ${(props) => props.area};
   display: flex;
   align-items: center;
+  margin-top: 10px;
   @media screen and (min-width: 1024px) {
     align-items: flex-end;
   }
@@ -113,8 +115,10 @@ export const ButtonImgArrow = styled.button`
   border-style: none;
   background: #efefef;
   box-shadow: -3px 3px 6px 0px rgb(0 0 0 / 15%);
-  &:hover {
-    background: #82ff8f;
+  @media screen and (min-width: 1024px) {
+    &:hover {
+      background: #82ff8f;
+    }
   }
 `;
 export const ImgArrow = styled.img`
@@ -125,10 +129,14 @@ export const ImgArrow = styled.img`
 export const H4TitleCarousel = styled.h4`
   ${GetFontFamilyHeader()}
   font-size: 1.3rem;
+  margin-left: 7%;
+  margin-right: 7%;
 `;
 
 export const PDescriptionCarousel = styled.p`
   ${GetNormalFamily()}
+  margin-left: 7%;
+  margin-right: 7%;
   @media screen and (min-width: 768px) {
     font-size: 1.5rem;
   }
@@ -144,7 +152,7 @@ export const ImgCarousell = styled.img`
 export const ImgCarouselCover = styled.img`
   height: auto;
   width: 100%;
-
+  object-fit: cover;
   @media screen and (min-width: 768px) {
     height: 100%;
     width: 100%;

@@ -15,17 +15,19 @@ export const DivCard = styled.div`
   padding-left: 1%;
   padding-right: 1%;
   background: ${(props) => props.color};
-  height: 70vh;
+  height: fit-content;
   @media screen and (min-width: 760px) {
     display: grid;
     grid-template-columns: 35% 65%;
-    height: 25vh;
+    min-height: 25vh;
+    height: fit-content;
     padding-left: 5%;
-    padding-right: 15%;
+    padding-right: 5%;
   }
   @media screen and (min-width: 1020px) {
     height: 35vh;
     padding-left: 15%;
+    padding-right: 15%;
   }
 `;
 
@@ -50,15 +52,24 @@ export const ImgOnly = styled.img`
 export const DivRightInfo = styled.div`
   display: grid;
   grid-template-columns: 10% 90%;
-  grid-template-rows: 10% 10% 80%;
+  grid-template-rows: 25% 75%;
   grid-template-areas:
-    "icon sub"
-    "icon title"
+    "icon div"
     "desc desc";
+  margin-top: 10px;
+  height: fit-content;
+  height: 100%;
   @media screen and (min-width: 760px) {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
+  }
+  @media screen and (min-width: 1020px) {
+    display: grid;
+    margin-top: 0;
+    padding-left: 0;
     grid-template-areas:
-      "icon sub"
-      "icon title"
+      "icon div"
       ". desc";
   }
 `;
@@ -69,21 +80,29 @@ export const Psubtitle = styled.p`
   ${GetFamilyHeader()}
   color: grey;
   font-size: 4vw;
+  text-align: center;
   @media screen and (min-width: 760px) {
     font-size: 2vw;
+    text-align: left;
   }
   @media screen and (min-width: 1020px) {
     font-size: 0.8vw;
   }
 `;
 
+export const DivContainerTitles = styled.div`
+  grid-area: ${(props) => props.area};
+  height: fit-content;
+`;
 export const H4title = styled.h4`
   grid-area: ${(props) => props.area};
-  margin: 0;
+  margin-top: 1rem;
   ${GetFontFamilyHeader()}
-  color: grey;
+  text-align: center;
   @media screen and (min-width: 760px) {
+    margin-top: 0;
     font-size: 2.1vw;
+    text-align: start;
   }
   @media screen and (min-width: 1020px) {
     font-size: 1vw;
@@ -94,7 +113,9 @@ export const DescriptionOnly = styled.p`
   grid-area: ${(props) => props.area};
   ${GetNormalFamily()}
   text-align:center;
+  margin-top: 3rem;
   @media screen and (min-width: 760px) {
+    margin-top: 0;
     text-align: start;
     font-size: 2.1vw;
   }
@@ -108,14 +129,21 @@ export const Divicon = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  @media screen and (min-width: 760px) {
+    display: none;
+  }
+  @media screen and (min-width: 1020px) {
+    display: flex;
+  }
 `;
 
 export const ImgIconDescription = styled.img`
-  height: 60%;
+  width: 60%;
   @media screen and (min-width: 760px) {
-    height: 60%;
+    width: 60%;
   }
   @media screen and (min-width: 1020px) {
-    height: 100%;
+    width: 60%;
   }
 `;

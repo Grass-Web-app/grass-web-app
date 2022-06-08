@@ -4,4 +4,5 @@ export const DivGrassDescription = styled.div`
   min-height: 100vh;
   height: fit-content;
   background: white;
+  width: 100%;
 `;

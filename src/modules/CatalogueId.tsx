@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {
   ICatalogueCarouselDescription,
   IDataApi,
   IDataCatalogue,
-} from "../../interfaces/catalogue-id-interface";
-import CardsOfPics from "../grass/CardsOfPics";
-import CarouselGrass from "../grass/CarouselGrass";
-import FullDescription from "../grass/FullDescription";
-import GrassHeader from "../grass/GrassHeader";
-import { DivGrassDescription } from "../grass/styledgrass";
-import useAxiosGet from "../Hooks/useAxiosGet";
-import HeaderFooterWraper from "../layout/InitWraper";
+} from "../interfaces/catalogue-id-interface";
+import CardsOfPics from "../components/grass/CardsOfPics";
+import CarouselGrass from "../components/grass/CarouselGrass";
+import FullDescription from "../components/grass/FullDescription";
+import GrassHeader from "../components/grass/GrassHeader";
+import { DivGrassDescription } from "../components/grass/styledgrass";
+import useAxiosGet from "../components/Hooks/useAxiosGet";
+import HeaderFooterWraper from "../components/layout/InitWraper";
+import RedirectTo404 from "./RedirectTo404";
 
 const CatalogueId = () => {
   let params = useParams();
@@ -19,6 +20,7 @@ const CatalogueId = () => {
   const Id = Name.split("ghf-")[1];
   const [Contenido, setContenido] = useState<IDataCatalogue | null>(null);
   const [Carousel, setCarousel] = useState<string[]>([]);
+  const [NoData, setNoData] = useState(false);
   const { Get } = useAxiosGet(`catalogues/public/catalogue/${Id}`, {
     completeInterceptor: {
       action: (dat: IDataApi) => {
@@ -27,6 +29,9 @@ const CatalogueId = () => {
     },
     errorInterceptor: {
       message: "No se obtuvieron los datos de get",
+      action: () => {
+        setNoData(true);
+      },
     },
   });
 
@@ -49,6 +54,7 @@ const CatalogueId = () => {
   }, [Contenido]);
   return (
     <HeaderFooterWraper>
+      {NoData && <RedirectTo404 />}
       <DivGrassDescription>
         {Contenido !== null && (
           <GrassHeader information={Contenido?.catalogue_headers[0]} />

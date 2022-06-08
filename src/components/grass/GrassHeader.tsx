@@ -1,4 +1,3 @@
-import React from "react";
 import { ICatalogueHeaders } from "../../interfaces/catalogue-id-interface";
 
 import {

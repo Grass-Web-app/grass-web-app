@@ -19,6 +19,7 @@ export const ImgGrassPicture = styled.img`
 
 export const H2HeaderGrass = styled.h2`
   position: absolute;
+  text-align: center;
   top: 0;
   bottom: 0;
   left: 0;

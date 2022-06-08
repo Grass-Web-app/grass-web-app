@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
@@ -26,41 +25,38 @@ const CardHover = (props: {
     localStorage.setItem("FustadesingCatalogue", id);
   };
   const [ShowAnimation, setShowAnimation] = useState(false);
-  const handleMouse = () => {
-    setShowAnimation(!ShowAnimation);
+  const handleMouseOver = () => {
+    setShowAnimation(true);
+  };
+  const handleMouseOut = () => {
+    setShowAnimation(false);
   };
   return (
-    <Link to={`catalogue/${Title.replaceAll(" ","-")}-ghf-${id}`}>
-      <a>
-        <DivContainerHover
-          onClick={() => GotoGrass(`${id}`)}
-          onMouseOver={handleMouse}
-          onMouseOut={handleMouse}
-        >
-          <DivImgCOntainer>
-            <ImgHover alt="grass" src={img} />
-          </DivImgCOntainer>
-          <DivRelativeOne>
-            <H2Desc animation={ShowAnimation.toString()}>{Title}</H2Desc>
-          </DivRelativeOne>
-          <DivRelativeBlack
-            animation={ShowAnimation.toString()}
-          ></DivRelativeBlack>
-          <DivRelativeTwo animation={ShowAnimation.toString()}>
-            <DivContainerCard>
-              <PTitle animation={(!ShowAnimation).toString()}>
-                {SubTitle}
-              </PTitle>
-              <H2DescHide animation={(!ShowAnimation).toString()}>
-                {Title}
-              </H2DescHide>
-              <PText animation={(!ShowAnimation).toString()}>
-                {Description}
-              </PText>
-            </DivContainerCard>
-          </DivRelativeTwo>
-        </DivContainerHover>
-      </a>
+    <Link to={`catalogue/${Title.replaceAll(" ", "-")}-ghf-${id}`}>
+      <DivContainerHover
+        onClick={() => GotoGrass(`${id}`)}
+        onMouseOver={() => handleMouseOver()}
+        onMouseOut={() => handleMouseOut()}
+      >
+        <DivImgCOntainer>
+          <ImgHover alt="grass" src={img} />
+        </DivImgCOntainer>
+        <DivRelativeOne>
+          <H2Desc animation={ShowAnimation.toString()}>{Title}</H2Desc>
+        </DivRelativeOne>
+        <DivRelativeBlack
+          animation={ShowAnimation.toString()}
+        ></DivRelativeBlack>
+        <DivRelativeTwo animation={ShowAnimation.toString()}>
+          <DivContainerCard>
+            <PTitle animation={(!ShowAnimation).toString()}>{SubTitle}</PTitle>
+            <H2DescHide animation={(!ShowAnimation).toString()}>
+              {Title}
+            </H2DescHide>
+            <PText animation={(!ShowAnimation).toString()}>{Description}</PText>
+          </DivContainerCard>
+        </DivRelativeTwo>
+      </DivContainerHover>
     </Link>
   );
 };

@@ -5,8 +5,6 @@ import {
 } from "../../styles/createGlobalStyles";
 
 export const DivBackContainer = styled.div`
-  border-style: solid;
-  border-width: 1px;
   padding-top: 3%;
   padding-bottom: 3%;
 `;

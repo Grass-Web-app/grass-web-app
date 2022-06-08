@@ -89,7 +89,7 @@ export const ImgMArk = styled.img`
 
 export const DivIconsContainer = styled.div`
   cursor: pointer;
-  width: 100%;
+  width: 50px;
   display: flex;
   justify-content: space-around;
   @media screen and (min-width: 768px) {

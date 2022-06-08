@@ -2,6 +2,7 @@ import {
   DescriptionOnly,
   DivCard,
   DivCardsContainer,
+  DivContainerTitles,
   Divicon,
   DivImgContainer,
   DivRightInfo,
@@ -32,8 +33,10 @@ const CardsOfPics = (props: {
               <Divicon area="icon">
                 <ImgIconDescription alt="image" src={golf} />
               </Divicon>
-              <Psubtitle area="sub">{item?.subtitle}</Psubtitle>
-              <H4title area="title">{item?.title}</H4title>
+              <DivContainerTitles area="div">
+                <Psubtitle area="sub">{item?.subtitle}</Psubtitle>
+                <H4title area="title">{item?.title}</H4title>
+              </DivContainerTitles>
               <DescriptionOnly area="desc">{item?.description}</DescriptionOnly>
             </DivRightInfo>
           </DivCard>
