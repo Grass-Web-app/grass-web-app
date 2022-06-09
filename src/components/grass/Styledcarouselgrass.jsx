@@ -36,13 +36,28 @@ export const DivLeftInfo = styled.div`
 
 export const DivRightCarousel = styled.div`
   width: 100%;
-
+  position: relative;
   overflow: hidden;
+
   @media screen and (min-width: 760px) {
     height: 100%;
   }
 `;
-
+export const DivImgOpacity = styled.div`
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  transition: 2s;
+  opacity: ${(props) => (props.opa === "true" ? 0 : 1)};
+`;
+export const ImgCarouselOpacity = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
 export const PSubtitleCarousel = styled.p`
   grid-area: ${(props) => props.area};
   margin: 0;

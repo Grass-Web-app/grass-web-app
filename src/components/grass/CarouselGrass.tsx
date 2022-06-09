@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-import Carousel from "../carousel/Carousel";
 import {
   DivBenefits,
   DivBenefitsList,
   DivCarouselGrassContainer,
   DivDescription,
   DivIcon,
+  DivImgOpacity,
   DivLeftInfo,
   DivRightCarousel,
+  ImgCarouselOpacity,
   ImgIconCarousel,
   Pbenefits,
   PBenefitsTitle,
@@ -26,6 +27,8 @@ const CarouselGrass = (props: {
 }) => {
   const { information, carousel } = props;
   const [Benefits, setBenefits] = useState<string[]>([]);
+  const time = 4000;
+  const [showThisPicture, setShowThisPicture] = useState<number>(0);
   useEffect(() => {
     if (information !== null) {
       if (information?.benefits.includes(caracteres)) {
@@ -35,6 +38,18 @@ const CarouselGrass = (props: {
       }
     }
   }, [information]);
+  useEffect(() => {
+    if (carousel.length !== 0) {
+      if (showThisPicture < carousel.length - 1)
+        setTimeout(() => {
+          setShowThisPicture(showThisPicture + 1);
+        }, time);
+      else
+        setTimeout(() => {
+          setShowThisPicture(0);
+        }, time);
+    }
+  }, [showThisPicture, carousel]);
 
   return (
     <DivCarouselGrassContainer>
@@ -64,7 +79,16 @@ const CarouselGrass = (props: {
         </DivBenefitsList>
       </DivLeftInfo>
       <DivRightCarousel>
-        {carousel?.length !== 0 && <Carousel time={2000} images={carousel} />}
+        {carousel.length !== 0 &&
+          carousel.map((item: string, index: number) => {
+            let showMee = false;
+            if (showThisPicture === index) showMee = true;
+            return (
+              <DivImgOpacity opa={showMee.toString()} key={index}>
+                <ImgCarouselOpacity src={item} />
+              </DivImgOpacity>
+            );
+          })}
       </DivRightCarousel>
     </DivCarouselGrassContainer>
   );
