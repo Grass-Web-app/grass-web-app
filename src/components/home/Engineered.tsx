@@ -25,7 +25,8 @@ import {
   TextTitleCardInside,
 } from "./StyledEngineered";
 
-const Engineered = () => {
+const Engineered = (props: { title: string }) => {
+  const { title } = props;
   const [EngineeredList, setEngineeredList] = useState<IEngineredOnlyList[]>(
     []
   );
@@ -78,7 +79,7 @@ const Engineered = () => {
       </DivSandwichContainer>
       <DivContainerSandText>
         <DivTextTitle area="title">
-          <TextTitleCard>ENGINEERED TO PERFORM</TextTitleCard>
+          <TextTitleCard>{title}</TextTitleCard>
         </DivTextTitle>
         {EngineeredList.length !== 0 &&
           EngineeredList.map((item: IEngineredOnlyList, index: number) => {

@@ -8,7 +8,8 @@ import {
   KidsFrame,
   Pwords,
 } from "./styledShowHeader";
-const ShowHeader = () => {
+const ShowHeader = (props: { title: string; subtitle: string }) => {
+  const { title, subtitle } = props;
   return (
     <DivContainerShow>
       <DivHidenSee>
@@ -26,8 +27,8 @@ const ShowHeader = () => {
       </DivHidenSee>
 
       <DivWordsContainer>
-        <H2Title>INNOVATIVE TURF SOLUTIONS</H2Title>
-        <Pwords>Designed by Industry Experts</Pwords>
+        <H2Title>{title}</H2Title>
+        <Pwords>{subtitle}</Pwords>
       </DivWordsContainer>
     </DivContainerShow>
   );

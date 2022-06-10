@@ -23,7 +23,8 @@ import {
   IDataCarousels,
 } from "../../interfaces/carousel-home-interface";
 
-const Carousel = () => {
+const Carousel = (props: { title: string; subtitle: string }) => {
+  const { title, subtitle } = props;
   const [CarouselList, setCarouselList] = useState<IDataCarousels[]>([]);
   const { Get } = useAxiosGet("carousels/public/", {
     completeInterceptor: {
@@ -51,8 +52,8 @@ const Carousel = () => {
   return (
     <DivCarouselContainer>
       <DivMessage>
-        <Ptitle>Putting Green Kits</Ptitle>
-        <H3Mark>XGRASS PLAYERS SERIES</H3Mark>
+        <Ptitle>{subtitle}</Ptitle>
+        <H3Mark>{title}</H3Mark>
       </DivMessage>
       <DivCarousel>
         <LeftArrow area="Larr">
